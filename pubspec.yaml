@@ -1,0 +1,28 @@
+name: bazaar_updater
+description: >
+  Checks the version of this app currently published on Cafe Bazaar,
+  via a native Android call. The native implementation is a stub — see
+  README.md before relying on this in production.
+version: 0.1.0
+homepage: https://example.com
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.1.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: ir.hesab.bazaar_updater
+        pluginClass: BazaarUpdaterPlugin
