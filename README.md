@@ -8,34 +8,6 @@ backend for the bazaar flavor.
 This is the real thing, not a reverse-engineered guess: BazaarUpdater is
 Cafe Bazaar's own supported SDK for exactly this purpose.
 
-## Setup
-
-**1. Add the JitPack repository where your app actually reads it.**
-
-If your Android project uses Gradle's centralized repository management
-(the `dependencyResolutionManagement` block in `settings.gradle.kts` --
-likely your case, given the AGP 9 "new DSL" warning you hit earlier), add
-JitPack there, at the app level, not just in this plugin's own build.gradle:
-
-```kotlin
-// android/settings.gradle.kts, inside dependencyResolutionManagement.repositories
-maven { url = uri("https://jitpack.io") }
-```
-
-This plugin's own `android/build.gradle` also declares JitPack as a
-fallback, but under the new centralized-repo DSL that declaration may simply
-be ignored -- if the build can't resolve `bazaarUpdater`, this is the first
-thing to check.
-
-**2. Wire the plugin into your app** via `dependency_overrides` in
-`pubspec.yaml`:
-
-```yaml
-dependency_overrides:
-  bazaar_updater:
-    path: ../bazaar_updater
-```
-
 ## Usage
 
 ```dart
@@ -67,7 +39,7 @@ foreground to resume it.
 - **No mandatory update support.** Bazaar's own FAQ says this SDK can't
   force an update. If `is_mandatory` from your backend matters, that logic
   still has to live in your app, separate from this SDK -- this only tells
-  you whether an update *exists*.
+  you whether an update _exists_.
 - **Package name + signing must match exactly** what's published on
   Bazaar. A debug build, or a build signed with a different keystore/alias
   than your release, will never detect a real update -- this is the single

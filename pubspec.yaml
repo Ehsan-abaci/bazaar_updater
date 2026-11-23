@@ -3,8 +3,11 @@ description: >
   Checks the version of this app currently published on Cafe Bazaar,
   via a native Android call. The native implementation is a stub — see
   README.md before relying on this in production.
+  
 version: 0.1.1
-homepage: https://example.com
+
+homepage: https://github.com/Ehsan-abaci/bazaar_updater
+repository: https://github.com/Ehsan-abaci/bazaar_updater
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
